@@ -1,0 +1,8 @@
+{
+  "Messages" : {
+  "SomethingWentWrong": "حدث خطأ ما!.. يرجى المحاولة مرة أخرى لاحقًا.",
+  "IncorrectPhoneOrPassword": "خطأ برقم المحمول أو كلمة المرور",
+  "YourAccountIsDeactivated": "تم تعطيل حسابك",
+  "UserNotFound": "المستخدم غير موجود"
+}
+}

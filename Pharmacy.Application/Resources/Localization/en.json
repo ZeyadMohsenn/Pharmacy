@@ -1,0 +1,9 @@
+{
+  "Messages" : {
+    "SomethingWentWrong": "Something went wrong!..Please try again later.",
+    "IncorrectPhoneOrPassword": "Incorrect phone number or password.",
+    "YourAccountIsDeactivated": "Your account is deactivated.",
+    "UserNotFound": "User not found."
+
+}
+}
