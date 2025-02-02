@@ -69,12 +69,18 @@ namespace Pharmacy.Infrastructure.Migrations
                     b.Property<Guid>("Created_By")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("Date_Of_Birth")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime?>("End_Date")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Full_Name")
                         .IsRequired()
@@ -85,6 +91,9 @@ namespace Pharmacy.Infrastructure.Migrations
 
                     b.Property<bool>("Is_Deleted")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Last_Login")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -115,11 +124,11 @@ namespace Pharmacy.Infrastructure.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Role")
-                        .HasColumnType("int");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Start_Date")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");

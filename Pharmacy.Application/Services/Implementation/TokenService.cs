@@ -38,11 +38,11 @@ public class TokenService(AuthSettings authSettings, IUnitOfWork unitOfWork) : I
     var key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_authSettings.TokenSecretKey));
     var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
-    List<Claim> claims =
-    [
+    var claims = new List<Claim>
+    {
       new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-      new Claim(ClaimTypes.Role, user.Role.ToString()),
-    ];
+      new Claim(ClaimTypes.Role, user.UserRoles.Select(x => x.Role.Name).FirstOrDefault() ?? string.Empty),
+    };
 
     var tokenHandler = new JwtSecurityTokenHandler();
     var token = new JwtSecurityToken(

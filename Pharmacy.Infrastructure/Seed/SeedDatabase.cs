@@ -18,17 +18,31 @@ public class SeedDatabase
 
     private static async Task SeedUserData(AppDbContext context, UserManager<ApplicationUser> userManager)
     {
-        Guid.TryParse(ApplicationConstants.SuperAdminId, out var superAdmin);
+        Guid.TryParse(ApplicationConstants.Programmer, out var programmer);
+        Guid.TryParse(ApplicationConstants.AdminId, out var admin);
 
         var user = new ApplicationUser
         {
-            Id = superAdmin,
+            Id = programmer,
             Full_Name = "Super Admin",
             Email = "Programmer@programmer.com",
             NormalizedEmail = "PROGRAMMER@PROGRAMMER.COM",
             UserName = "Programmer",
             NormalizedUserName = "PROGRAMMER",
-            Role = UserRole.SuperAdmin,
+            Is_Active = true,
+            EmailConfirmed = true,
+            PhoneNumberConfirmed = true,
+            SecurityStamp = Guid.NewGuid().ToString("D"),
+        };
+
+        var Admin = new ApplicationUser
+        {
+            Id = admin,
+            Full_Name = "Admin",
+            Email = "Admin@Admin.com",
+            NormalizedEmail = "ADMIN@ADMIN.COM",
+            UserName = "Admin",
+            NormalizedUserName = "ADMIN",
             Is_Active = true,
             EmailConfirmed = true,
             PhoneNumberConfirmed = true,
@@ -36,7 +50,7 @@ public class SeedDatabase
         };
 
         var set = context.Set<ApplicationUser>();
-        if (!await set.AnyAsync(a => a.Id == superAdmin))
+        if (!await set.AnyAsync(a => a.Id == programmer || a.NormalizedUserName == user.NormalizedUserName))
         {
             var passwordHasher = new PasswordHasher<ApplicationUser>();
             user.PasswordHash = passwordHasher.HashPassword(user, "P00000");
@@ -44,6 +58,15 @@ public class SeedDatabase
 
             await context.SaveChangesAsync();
             await userManager.AddToRoleAsync(user, nameof(UserRole.SuperAdmin));
+        }
+        if (!await set.AnyAsync(a => a.Id == admin || a.NormalizedUserName == Admin.NormalizedUserName))
+        {
+            var passwordHasher = new PasswordHasher<ApplicationUser>();
+            Admin.PasswordHash = passwordHasher.HashPassword(Admin, "P00000");
+            await set.AddAsync(Admin);
+
+            await context.SaveChangesAsync();
+            await userManager.AddToRoleAsync(Admin, nameof(UserRole.SuperAdmin));
         }
     }
 

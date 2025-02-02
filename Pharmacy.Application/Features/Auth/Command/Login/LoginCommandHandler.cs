@@ -15,19 +15,25 @@ public class LoginCommandHandler(UserManager<ApplicationUser> userManager, IToke
 
     public override async Task<Result<TokenDto>> Handle(LoginCommand request, CancellationToken cancellationToken)
     {
-        var user = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == request.UserName);
+        var user = await _userManager.Users
+            .Include(x => x.UserRoles)
+            .ThenInclude(x => x.Role)
+            .FirstOrDefaultAsync(x => x.UserName == request.UserName);
 
         if (user == null || user.Is_Deleted)
             return Result<TokenDto>.Fail(Messages.UserNotFound);
-
-        if (!user.Is_Active)
-            return Result<TokenDto>.Fail(Messages.YourAccountIsDeactivated);
 
         var result = await _userManager.CheckPasswordAsync(user, request.Password);
         if (!result)
             return Result<TokenDto>.Fail(Messages.IncorrectPassword);
 
+        if (!user.Is_Active)
+            return Result<TokenDto>.Fail(Messages.YourAccountIsDeactivated);
+
         var token = await _tokenService.GenerateToken(user);
+
+        user.Last_Login = DateTime.UtcNow;
+        await _userManager.UpdateAsync(user);
         return Result<TokenDto>.Success(token);
     }
 }

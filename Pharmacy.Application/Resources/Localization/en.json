@@ -3,7 +3,20 @@
     "SomethingWentWrong": "Something went wrong!..Please try again later.",
     "IncorrectPhoneOrPassword": "Incorrect phone number or password.",
     "YourAccountIsDeactivated": "Your account is deactivated.",
-    "UserNotFound": "User not found."
-
+    "UserNotFound": "User not found.",
+    "FullNameIsRequired": "Full name is required.",
+    "PasswordIsRequired": "Password is required.",
+    "InvalidPassword": "Invalid password.",
+    "UserNameIsRequired": "Username is required.",
+    "UserNameIsTooLong": "Username is too long.",
+    "UserNameAlreadyExists": "Username already exists.",
+    "InvalidEmail": "Invalid email.",
+    "EmailIsTooLong": "Email is too long.",
+    "EmailAlreadyExists": "Email already exists.",
+    "PhoneNumberIsTooLong": "Phone number is too long.",
+    "RoleIdIsRequired": "Role ID is required.",
+    "InvalidDateOfBirth": "Invalid date of birth.",
+    "RoleNotFound": "Role not found.",
+    "AccountCreatedSuccessfully": "Account created successfully."
 }
 }
