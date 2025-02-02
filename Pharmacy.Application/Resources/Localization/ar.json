@@ -3,6 +3,20 @@
   "SomethingWentWrong": "حدث خطأ ما!.. يرجى المحاولة مرة أخرى لاحقًا.",
   "IncorrectPhoneOrPassword": "خطأ برقم المحمول أو كلمة المرور",
   "YourAccountIsDeactivated": "تم تعطيل حسابك",
-  "UserNotFound": "المستخدم غير موجود"
+  "UserNotFound": "المستخدم غير موجود",
+  "FullNameIsRequired": "الاسم الكامل مطلوب.",
+  "PasswordIsRequired": "كلمة المرور مطلوبة.",
+  "InvalidPassword": "كلمة المرور غير صحيحة.",
+  "UserNameIsRequired": "اسم المستخدم مطلوب.",
+  "UserNameIsTooLong": "اسم المستخدم طويل جدًا.",
+  "UserNameAlreadyExists": "اسم المستخدم موجود بالفعل.",
+  "InvalidEmail": "البريد الإلكتروني غير صالح.",
+  "EmailIsTooLong": "البريد الإلكتروني طويل جدًا.",
+  "EmailAlreadyExists": "البريد الإلكتروني موجود بالفعل.",
+  "PhoneNumberIsTooLong": "رقم الهاتف طويل جدًا.",
+  "RoleIdIsRequired": "معرف الدور مطلوب.",
+  "InvalidDateOfBirth": "تاريخ الميلاد غير صالح.",
+  "RoleNotFound": "الدور غير موجود.",
+  "AccountCreatedSuccessfully": "تم إنشاء الحساب بنجاح."
 }
 }

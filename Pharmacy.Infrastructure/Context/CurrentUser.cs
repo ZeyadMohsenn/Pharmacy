@@ -11,7 +11,7 @@ public class CurrentUser(IHttpContextAccessor httpContext) : ICurrentUser
 
     public Guid GetUserId()
     {
-        Guid.TryParse(ApplicationConstants.SuperAdminId, out var superAdmin);
+        Guid.TryParse(ApplicationConstants.AdminId, out var superAdmin);
         if (_httpContext?.User is null)
             return superAdmin;
 
